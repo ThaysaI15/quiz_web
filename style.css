@@ -9,6 +9,9 @@ body{
     border: 10px;
     border-radius: 10px;
     align-items: center;
+    background-color: rgb(4, 27, 133);
+    padding: 20px;
+    width: 80%;
 }
 .pergunta{
     background-color: rgb(250, 255, 255);
@@ -16,5 +19,6 @@ body{
     border: 10px;
     border-radius: 10px;
     margin: 20px;
-    width: 80%;
+    width: 85%;
+    align-items: center;
 }
