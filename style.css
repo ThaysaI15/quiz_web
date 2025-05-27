@@ -1,0 +1,20 @@
+body{
+    background-color:#092499;
+    align-items: center;
+    box-shadow: rgb(22, 21, 21);
+}
+.retangulo{
+    margin: 20px;
+    border-color: black;
+    border: 10px;
+    border-radius: 10px;
+    align-items: center;
+}
+.pergunta{
+    background-color: rgb(250, 255, 255);
+    border-color: black;
+    border: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    width: 80%;
+}
