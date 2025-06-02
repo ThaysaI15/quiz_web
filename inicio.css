@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(4, 27, 133);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  h1 {
+    margin-bottom: 30px;
+    color: #ffffff;
+  }
+  
+  .btn-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .facil {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .facil:hover {
+    background-color: #45a049;
+  }
+  
+  .dificil {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .dificil:hover {
+    background-color: #d32f2f;
+  }
