@@ -1,5 +1,5 @@
-function iniciarquiz(dificuldade) {
-if (dificuldade === 'facil') {
-    window.location.href = 'qst_1.html';
+function iniciarquiz() {
+if (dificuldade === "facil") {
+    window.location.href = "qst_1.html";
 }
 }
