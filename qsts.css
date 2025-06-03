@@ -7,7 +7,10 @@ body{
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    align-items: center;
 }
+
 .retangulo{
     border-color: black;
     border: 30px;
@@ -16,24 +19,25 @@ body{
     margin: 40px;
     border-radius: 10px;
     align-items: center;
-    background-color: rgb(102, 121, 202);
+    background-color: rgb(93, 115, 216);
     padding: 50px;
     width: 800px;
     justify-content: center;
-    height: 450px;
+    height: 600px;
     justify-content: space-between;
+    text-align: center;
 }
 .pergunta{
     background-color: rgb(250, 255, 255);
+    border: 30px;
     border-color: black;
-    border: 10px;
     border-radius: 10px;
-    margin: 30px;
+    margin: 35px;
     width: 85%;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    height: 80px;
+    height: 100px;
 }
 
 /* .opcoes{
@@ -47,14 +51,21 @@ body{
     margin: 10px;
     align-items: center;
     justify-content: center;
-    background-color: #1b11a1;
+    background-color: rgb(4, 27, 133);
     border-radius: 10px;
     color: rgb(255, 255, 255);
     cursor: pointer;
     width: 90%;
-    height: 52px;
+    height: 70px;
 }
+
+.botao:hover {
+    background-color: #1a1974;
+  }
 
 .cima{
     text-align: left;
+    display:block;
+    flex-direction: row;
+    font-size: 15px;
 }
