@@ -2,20 +2,25 @@ body{
     font-family: Arial, sans-serif;
     background: rgb(4, 27, 133);
     flex-direction: column;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 .retangulo{
     border-color: black;
-    border: 10px;
+    border: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 40px;
     border-radius: 10px;
     align-items: center;
-    background-color: rgb(4, 27, 133);
-    padding: 20px;
-    width: 80%;
+    background-color: rgb(102, 121, 202);
+    padding: 50px;
+    width: 800px;
     justify-content: center;
-    height: 500px;
+    height: 450px;
     justify-content: space-between;
 }
 .pergunta{
@@ -26,11 +31,30 @@ body{
     margin: 30px;
     width: 85%;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
 }
 
-.opcoes{
-    background-color: #ffffff;
+/* .opcoes{
+    background-color: #b43a3a;
     border-radius: 10px;
-    color: white;
+    color: rgb(230, 86, 86);
     cursor: pointer;
+} */
+
+.botao{
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: #1b11a1;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    width: 90%;
+    height: 52px;
+}
+
+.cima{
+    text-align: left;
 }
