@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Primeiro Formulário</title>
+</head>
+<body>
+    <form>
+        <label for="nome">Seu Nome</label>
+        <input type="text" name="nome" id="nome"></input>
+        <label for="idade">Sua Idade</label>
+        <input type="number" id="idade" name="idade">
+        <fieldset>
+            <legend>Seu sexo</legend>
+            <label for="sexoM">Maculino</label>
+            <input type="radio" name="sexo" id="sexoM" value="masculino" required>
+            <label for="sexoM">Feminino</label>
+            <input type="radio" name="sexo" id="sexof" value="feminino" required>
+        </fieldset>
+        <fieldset>
+            <legend>Quais são seus hobbies?</legend>
+            <label for="rpg">RPG</label>
+            <input type="checkbox" name="hobbies" id="rpg" value="rpg">
+            <label for="esporte">Esportes</label>
+            <input type="checkbox" name="hobbies" id="esporte" value="esportes">
+            <label for="games">Games</label>
+            <input type="checkbox" name="hobbies" id="games" value="games">
+            <label for="moda">Moda</label>
+            <input type="checkbox" name="hobbies" id="moda" value="moda">
+        </fieldset>
+        <label for="ensinoMedio">Cursa qual série? </label>
+        <select name="ensinoMedio" required>
+            <option value="">Selecione</option>
+            <option value="1">1° Ano</option>
+            <option value="2">2° Ano</option>
+            <option value="3">3° Ano</option>
+        </select>
+        <label for="bio">Me fale de você: </label>
+        <textarea name="bio" id="bio"></textarea>  
+        <input type=""
+    </form>
+    
+</body>
+</html>
