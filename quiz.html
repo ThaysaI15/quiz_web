@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Sobre Informática Básica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Quiz Sobre Informática Básica</h1>
+<br><br>
+<form id="quizForm">
+    <div class="question" id="questionText"></div>
+    <div class="options" id="optionsContainer"></div>
+    <button type="submit">Próxima</button>
+</form>
+<div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+
+<script>
+    const quizData = [
+        {
+            question: "O que é Hardware?",
+            options: ["É a parte do computador onde se faz as pesquisas", 
+"É o conjunto de componentes lógicos do computador, que controlam o funcionamento lógico da máquina",
+"É a parte física do computador, com seus periféricos e aparatos conectados a ele",
+"É um aplicativo para acelerar o funcionamento do computador"
+],
+            answer: 2
+        },
+        {
+            question: "O que é Software?",
+            options: ["É o conjunto de componentes lógicos do computador, que controlam o funcionamento lógico da máquina",
+"São os periféricos do computador",
+"É uma peça utilizada para montar o computador",
+"É um tipo de vírus do computador"
+],
+            answer: 0
+        },
+        {
+            question: "Qual o atalho utilizado para copiar e colar no teclado",
+            options: ["Ctrl+Z - Ctrl+X", "Ctrl+C - Ctrl+V", "Alt+C - Alt+V", "Ctrl+A - Ctrl+T"],
+            answer: 1
+        },  
+        {
+            question: "O que é computador?",
+            options: ["É uma máquina utilizada para tirar fotos", "É um programa utilizado para fazer pesquisas acadêmicas", "É um dispositivo feito somente para entretenimento com filmesge Worlds", "É uma máquina que é destinada ao processamento de dados"],
+            answer: 3
+        },  
+        {
+            question: "Quais são as etapas de um algoritmo?",
+            options: [
+                "Entrada de dados, processamento e saída de dados",
+                "Cálculos e saída de informação",
+                "GAdição, subtração, divisão e multiplicação",
+                "Ligar, abrir e desligar",
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual desses NÃO é um software?",
+            options: [
+                "Google Chrome",
+                "Winrar",
+                "Teclado",
+                "Spotify"
+            ],
+            answer: 2
+        },
+        {
+            question: "Qual desses NÃO é um hardware",
+            options: ["Teclado", "Placa mãe", "Windows", "SSD"],
+            answer: 2
+        },
+        {
+            question: "Qual termo descrual destes não é um componente essencial para a montagem de um computadoreve o narrador do jogo?",
+            options: ["CPU", "Fone", "Placa mãe", "Memória RAM"],
+            answer: 1
+        },
+        {
+            question: "Qual dessas não é um tipo de dado?",
+            options: [
+                "Booleano",
+                "Numérico",
+                "Caracteres",
+                "Nome"
+            ],
+            answer: 3
+        },
+        {
+            question: "Qual o tipo de informação que um computador interpreta?",
+            options: ["Binário", "Hexadecimal", "Octal&D", "Decimal", "Savage Worlds"],
+            answer: 0
+        },
+        //DIFÍCEIS
+        {
+            question: "O que representa o atributo 'Carisma' em D&D?",
+            options: ["Força física", "Capacidade de liderança e persuasão", "Inteligência mágica", "Resistência física", "Destreza com armas"],
+            answer: 1
+        },
+        {
+            question: "Qual desses jogos é baseado em super-heróis?",
+            options: ["Tormenta", "Mutants & Masterminds", "Pathfinder", "Call of Cthulhu", "Shadowrun"],
+            answer: 1
+        },
+        {
+            question: "FATE é um sistema baseado em:",
+            options: ["Regras rígidas e detalhadas", "Rolagem de porcentagem", "Narrativa e aspectos", "Dados de 20 lados", "Cartas"],
+            answer: 2
+        },
+        {
+            question: "Qual destes sistemas se passa em um futuro cyberpunk?",
+            options: ["Call of Cthulhu", "Shadowrun", "Tormenta", "Pathfinder", "Vampire"],
+            answer: 1
+        },
+        {
+            question: "Qual destes é um dado comum em RPGs?",
+            options: ["D3", "D11", "D13", "D20", "D9"],
+            answer: 3
+        },
+        {
+            question: "No RPG, o termo 'one-shot' se refere a:",
+            options: ["Uma campanha de longa duração", "Uma sessão curta e única", "Um combate rápido", "Uma ficha de personagem", "Um erro crítico"],
+            answer: 1
+        },
+        {
+            question: "O que é um 'NPC'?",
+            options: ["Não Participa do Combate", "Novo Personagem Criado", "Narrador Principal do Cenário", "Não-Player Character", "Núcleo de Personagem Central"],
+            answer: 3
+        },
+        {
+            question: "Qual sistema é considerado uma evolução do D&D 3.5?",
+            options: ["Tormenta", "Call of Cthulhu", "FATE", "Pathfinder", "Savage Worlds"],
+            answer: 3
+        },
+        {
+            question: "Em muitos RPGs, o teste é considerado bem-sucedido se:",
+            options: ["O dado cair em número par", "A rolagem for menor que o atributo", "O valor for igual à média", "O número for maior ou igual à dificuldade", "O personagem tiver vantagem"],
+            answer: 3
+        },
+        {
+            question: "Qual dessas não é uma classe típica de D&D?",
+            options: ["Mago", "Bárbaro", "Clérigo", "Pistoleiro", "Ladino"],
+            answer: 3
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const quizForm = document.getElementById("quizForm");
+
+    function loadQuestion() {
+        const questionObj = quizData[currentQuestion];
+        document.getElementById("questionText").innerText = `(${currentQuestion + 1}/${quizData.length}) ${questionObj.question}`;
+        const optionsContainer = document.getElementById("optionsContainer");
+        optionsContainer.innerHTML = "";
+
+        questionObj.options.forEach((option, index) => {
+            const label = document.createElement("label");
+            label.innerHTML = `
+          <input type="radio" name="answer" value="${index}">
+          ${option}
+        `;
+            optionsContainer.appendChild(label);
+        });
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault(); // impede envio padrão
+
+        const selected = document.querySelector('input[name="answer"]:checked');
+        if (!selected) {
+            alert("Por favor, selecione uma opção.");
+            return;
+        }
+
+        const answer = parseInt(selected.value);
+        if (answer === quizData[currentQuestion].answer) {
+            score++;
+        }
+
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion();
+        } else {
+            quizForm.style.display = "none";
+            document.getElementById("result").innerText = `Você acertou ${score} de ${quizData.length} questões!`;
+        }
+    }
+
+    quizForm.addEventListener("submit", handleSubmit);
+    loadQuestion();
+</script>
+</body>
+</html>
