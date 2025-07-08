@@ -1,19 +1,11 @@
-// Recupera a pontuação salva ou inicia em 0
-let pontuacao = localStorage.getItem("pontuacao") ? parseInt(localStorage.getItem("pontuacao")) : 0;
+function iniciarquiz(dificuldade) {
 
-// Atualiza a pontuação na tela
-document.getElementById("pontuacao").innerText = "Pontuação: " + pontuacao;
+    if (dificuldade==="facil") {
+        window.location.href="facil.html"
 
-function verificarResposta(botao, proximaPagina) {
-    if (botao.getAttribute("resp-correta") === "true") {
-        botao.classList.add("correta");
-        pontuacao++;
-        localStorage.setItem("pontuacao", pontuacao); // Salva a pontuação
-    } else {
-        botao.classList.add("errada");
+    }
+    else {
+        window.location.href="dificil.html"
     }
 
-    setTimeout(() => {
-        window.location.href = proximaPagina; // Redireciona para a próxima pergunta
-    }, 1000);
 }

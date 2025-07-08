@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Sobre Informática Básica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Quiz Sobre Informática Básica</h1>
+<br><br>
+<form id="quizForm">
+    <div class="question" id="questionText"></div>
+    <div class="options" id="optionsContainer"></div>
+    <button type="submit">Próxima</button>
+</form>
+<div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+
+<script>
+    const quizData = [
+        {
+            question: "Quais são as peças essenciais de um computador?",
+            options: ["Processador, Placa de vídeo, Fonte de alimentação e memória", 
+"Placa mãe, Processador, Armazenamento, Memória, Fonte de alimentação ",
+"Fonte de alimentação, Placa de vídeo, Gabinete e armazenamento",
+"Mouse, Teclado, Placa de vídeo, ventoinha e fonte de alimentação"
+],
+            answer: 1
+        },
+        {
+            question: "O que é uma variável?",
+            options: ["É um espaço que recebe um valor que não se altera",
+"É um número prefixo",
+"É um valor onde será usado diversas vezes no calculado, que não tem alteração",
+"É um espaço na memória feito para receber valores"
+],
+            answer: 3
+        },
+        {
+            question: "O que é memória RAM?",
+            options: ["É uma memória fixa que armazena os arquivos baixados do computador", "É uma memória volátil que organiza as informações que precisam ser acessadas rapidamente", "É uma memória fixa do computador que guarda as informações importantes", "É um espaço na memória do disco feita para guardar informações rápidas"],
+            answer: 1
+        },  
+        {
+            question: "O que é a memória ROM?",
+            options: ["É uma memória volátil onde se guarda aplicativos abertos", "É a memória que o processador usa para fazer contas", "É uma memória fixa que tem os dados de inicialização do computador gravados", "É a memória que é usada para baixar arquivos."],
+            answer: 2
+        },  
+        {
+            question: "O que é um sistema operacional?",
+            options: [
+                "É um programa que abre imagens",
+                "É o programa que faz a conexão do hardware e do software",
+                "É um gerenciador de arquivos",
+                "É uma forma de programação",
+            ],
+            answer: 1
+        },
+        {
+            question: "O que é uma matriz?",
+            options: [
+                "Estrutura que armazena variáveis do mesmo tipo, acessíveis com um único nome.",
+                "A aba principal de um navegador Chrome",
+                "Um processo que pode ser feito para acessar a cmd do computador",
+                "Um dos principais aplicativos que já vêm pré-instalados na máquina"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é cmd?",
+            options: ["Matriz Desenvolvida do Computador", "Matriz Computacional Dominante", "Central Matemático Desenvolvido", "Prompt de Comando"],
+            answer: 3
+        },
+        {
+            question: "O que é um Mainframe?",
+            options: ["Um local onde são armazenadas variáveis de um mesmo tipo", "É um computador de alto desempenho", "É uma peça que do hardware que transita informações entre os componentes", "Software utilizado para gerenciar tarefas de forma rápida e eficiente"],
+            answer: 1
+        },
+        {
+            question: "O que é virtualização?",
+            options: [
+                "É um processo que permite  compartilhar seu hardware com ambientes separados digitalmente",
+                "Foi o processo de evolução dos componentes do hardware do computador",
+                "Ligar-se na internet a fim de ter interações com outros usuários ao redor do mundo",
+                "Uma corrente virtualizada do hardware com o software"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é HTML?",
+            options: ["Ele administra as tarefas que serão realizadas no computador de forma compactada", "É uma sigla para “Hardware Transmission and Management Layer", "HTML é uma linguagem de marcação utilizada na construção de páginas na Web", "Um processo do computador para abrir arquivos localizados dentro de pastas"],
+            answer: 2
+        },
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const quizForm = document.getElementById("quizForm");
+
+    function loadQuestion() {
+        const questionObj = quizData[currentQuestion];
+        document.getElementById("questionText").innerText = `(${currentQuestion + 1}/${quizData.length}) ${questionObj.question}`;
+        const optionsContainer = document.getElementById("optionsContainer");
+        optionsContainer.innerHTML = "";
+
+        questionObj.options.forEach((option, index) => {
+            const label = document.createElement("label");
+            label.innerHTML = `
+          <input type="radio" name="answer" value="${index}">
+          ${option}
+        `;
+            optionsContainer.appendChild(label);
+        });
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault(); // impede envio padrão
+
+        const selected = document.querySelector('input[name="answer"]:checked');
+        if (!selected) {
+            alert("Por favor, selecione uma opção.");
+            return;
+        }
+
+        const answer = parseInt(selected.value);
+        if (answer === quizData[currentQuestion].answer) {
+            score++;
+        }
+
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion();
+        } else {
+            quizForm.style.display = "none";
+            document.getElementById("result").innerText = `Você acertou ${score} de ${quizData.length} questões!`;
+        }
+    }
+
+    quizForm.addEventListener("submit", handleSubmit);
+    loadQuestion();
+</script>
+</body>
+</html>

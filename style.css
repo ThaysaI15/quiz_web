@@ -29,6 +29,6 @@ body {
         font-size: 25px;
         cursor: pointer;
     }
-submit:hover {
-    background-color: #1a1974;
-  }
+    submit:hover {
+    background-color: #1a1974
+    }
